@@ -17,7 +17,7 @@ public class Application {
       Scanner scanner = new Scanner(file);
       while(scanner.hasNext()) {
         String line = scanner.nextLine();
-        List<String> wordsInLine = Arrays.asList(line.split("[\\s-_]+"));
+        List<String> wordsInLine = Arrays.asList(line.split("[\\s-]+"));
         for(String word : wordsInLine) {
           word = trimWord(word);
           if(isWord(word))
@@ -40,7 +40,7 @@ public class Application {
   }
 
   public static boolean isWord(String word){
-    if (word.equals(null) || "".equals(word) || Pattern.compile("[0-9]").matcher(word).find())
+    if (word.equals(null) || "".equals(word) || Pattern.compile("[0-9]|_").matcher(word).find())
       return false;
     return true;
   }

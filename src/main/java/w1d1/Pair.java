@@ -20,6 +20,10 @@ public class Pair {
     return value;
   }
 
+  public int compareTo(Pair p) {
+    return this.key.toLowerCase().compareTo(p.key.toLowerCase());
+  }
+
   @Override
   public String toString() {
     return "(" + key + ", " + value +")\n";

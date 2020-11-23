@@ -1,6 +1,7 @@
 package w1d1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Pairs {
@@ -22,6 +23,7 @@ public class Pairs {
   @Override
   public String toString() {
     String str = "";
+    Collections.sort(pairs, (x, y) -> x.compareTo(y));
     for(Pair p : pairs) {
       str += p;
     }
