@@ -6,18 +6,13 @@ import java.util.List;
 
 public class Pairs {
   List<Pair> pairs;
-  List<String> wordsInLowerCase;
   public Pairs() {
-    this.pairs = new ArrayList<Pair>();
-    this.wordsInLowerCase = new ArrayList<String>();
+    this.pairs = new ArrayList<>();
   }
 
   public void addPairFromKey(String key) {
-    if (!wordsInLowerCase.contains(key.toLowerCase())) {
-      wordsInLowerCase.add(key.toLowerCase());
-      Pair pair = new Pair(key);
-      pairs.add(pair);
-    }
+    Pair pair = new Pair(key.toLowerCase());
+    pairs.add(pair);
   }
 
   @Override
