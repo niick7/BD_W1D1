@@ -9,15 +9,20 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Application {
+  private static final String fileName = "testDataForW1D1.txt";
+  private static final String splitBySpaceOrMinusSign = "[\\s-]+";
+  private static final String fileExceptionMessage = "An error occurred.";
+  private static final String isNumberOrContainUnderscoreMatcherRegex = "[0-9]|_";
+
   public static void main(String[] args) {
     Pairs pairs = new Pairs();
     List<String> words = new ArrayList<String>();
     try {
-      File file = new File("testDataForW1D1.txt");
+      File file = new File(fileName);
       Scanner scanner = new Scanner(file);
       while(scanner.hasNext()) {
         String line = scanner.nextLine();
-        List<String> wordsInLine = Arrays.asList(line.split("[\\s-]+"));
+        List<String> wordsInLine = Arrays.asList(line.split(splitBySpaceOrMinusSign));
         for(String word : wordsInLine) {
           word = trimWord(word);
           if(isWord(word))
@@ -27,7 +32,7 @@ public class Application {
       System.out.println(pairs);
     }
     catch(FileNotFoundException e) {
-      System.out.println("An error occurred.");
+      System.out.println(fileExceptionMessage);
       e.printStackTrace();
     }
   }
@@ -40,7 +45,7 @@ public class Application {
   }
 
   public static boolean isWord(String word){
-    if (word.equals(null) || "".equals(word) || Pattern.compile("[0-9]|_").matcher(word).find())
+    if (word.equals(null) || "".equals(word) || Pattern.compile(isNumberOrContainUnderscoreMatcherRegex).matcher(word).find())
       return false;
     return true;
   }
