@@ -15,7 +15,7 @@ public class Application {
   private static final String isNumberOrContainUnderscoreMatcherRegex = "[0-9]|_";
 
   public static void main(String[] args) {
-    Pairs pairs = new Pairs();
+    Mapper mapper = new Mapper();
     List<String> words = new ArrayList<String>();
     try {
       File file = new File(fileName);
@@ -26,10 +26,10 @@ public class Application {
         for(String word : wordsInLine) {
           word = trimWord(word);
           if(isWord(word))
-            pairs.addPairFromKey(word);
+            mapper.addPairFromKey(word);
         }
       }
-      System.out.println(pairs);
+      System.out.println(mapper);
     }
     catch(FileNotFoundException e) {
       System.out.println(fileExceptionMessage);

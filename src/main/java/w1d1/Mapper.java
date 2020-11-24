@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Pairs {
+public class Mapper {
   List<Pair> pairs;
-  public Pairs() {
+  public Mapper() {
     this.pairs = new ArrayList<>();
   }
 
