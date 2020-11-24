@@ -15,10 +15,16 @@ public class Mapper {
     pairs.add(pair);
   }
 
+  public void sortPair() {
+    Collections.sort(pairs, (x, y) -> x.compareTo(y));
+  }
+
   @Override
   public String toString() {
     String str = "";
-    Collections.sort(pairs, (x, y) -> x.compareTo(y));
+
+    sortPair();
+
     for(Pair p : pairs) {
       str += p;
     }
