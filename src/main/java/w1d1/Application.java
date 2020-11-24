@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -16,7 +15,6 @@ public class Application {
 
   public static void main(String[] args) {
     Mapper mapper = new Mapper();
-    List<String> words = new ArrayList<String>();
     try {
       File file = new File(fileName);
       Scanner scanner = new Scanner(file);
@@ -45,7 +43,7 @@ public class Application {
   }
 
   public static boolean isWord(String word){
-    if (word.equals(null) || "".equals(word) || Pattern.compile(isNumberOrContainUnderscoreMatcherRegex).matcher(word).find())
+    if ("".equals(word) || Pattern.compile(isNumberOrContainUnderscoreMatcherRegex).matcher(word).find())
       return false;
     return true;
   }

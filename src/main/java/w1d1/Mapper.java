@@ -1,7 +1,6 @@
 package w1d1;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Mapper {
@@ -16,7 +15,7 @@ public class Mapper {
   }
 
   public void sortPair() {
-    Collections.sort(pairs, (x, y) -> x.compareTo(y));
+    pairs.sort(Pair::compareTo);
   }
 
   @Override
